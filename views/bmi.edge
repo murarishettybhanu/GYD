@@ -1,0 +1,148 @@
+@layout('layouts.app')
+
+@section('content')
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('/img/bmi.jpg')"">
+    <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet'>
+    <div class=" overlay">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1 style="font-family: 'Berkshire Swash'">Bmi calculator</h1>
+                    <p class="subheading" style="font-family: 'Euphoria Script';font-size: 40px;">"Be your own
+                        motivation"</p><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<center>
+    <div class="container">
+        <h4>Select</h4><br>
+        <select id="opt" class="form-control" onchange="calc()">
+            <option value="metric">Metric</option>
+            <option value="imperial">Imperial</option>
+        </select>
+        <br><br>
+    </div>
+    <div id="met" class="container">
+        <form action="javascript:void(0);">
+            <h4>Weight in kg:</h4><br>
+            <input id="weightinkg" class="form-control" placeholder="enter your weight here" type="text"><br><br>
+            <h4>Height in M:</h4> <br>
+            <input id="heightinm" class="form-control" placeholder="enter your height here" type="text"><br><br>
+            <input class="btn btn-success" type=submit onclick="bmimetric()" value="Check">
+
+        </form>
+    </div>
+    <div id="imp" class="container" style="display:none">
+        <form action="javascript:void(0);">
+            <h4>Weight in Lbs:</h4><br>
+            <input id="weightinlbs" class="form-control" placeholder="enter your weight here" type="text"><br><br>
+            <h4>Height in In:</h4> <br>
+            <input id="heightinin" class="form-control" placeholder="enter your height here" type="text"><br><br>
+            <input class="btn btn-success" type=submit onclick="bmiimperial()" value="Check">
+
+        </form>
+    </div>
+    <div class="container">
+        <div style="width: 50%;height: 200px;display: none;background-color:darkgray;color: #ffffff;" id="result" class="mx-auto">
+            <p id="bmi"></p>
+            <p id="category"style="color:black;"></p>
+            <button onclick="window.location.reload();" class="btn btn-primary">Re-check</button>
+        </div>
+    </div>
+</center>
+<script>
+    function calc() {
+        var opt = document.getElementById("opt").value;
+        if (opt === "metric") {
+            document.getElementById("imp").style.display = "none";
+            document.getElementById("met").style.display = "block";
+        }
+        if (opt === "imperial") {
+            document.getElementById("met").style.display = "none";
+            document.getElementById("imp").style.display = "block";
+        }
+    }
+    function bmimetric() {
+        var weight = document.getElementById("weightinkg").value;
+        var height = document.getElementById("heightinm").value;
+        var result = weight / (height * height);
+        document.getElementById("bmi").innerHTML="Your BMI is: "+result.toFixed(2);
+        if(result<=15){
+            document.getElementById("category").innerHTML="You fall under 'Very severely underweight' category";
+            document.getElementById("category").style.backgroundColor="#ffb04b";
+        }
+        else if(result>15&&result<=16){
+            document.getElementById("category").innerHTML="You fall under 'Severely underweight' category";
+            document.getElementById("category").style.backgroundColor="#ffb04b";
+        }
+        else if(result>16&&result<=18.5){
+            document.getElementById("category").innerHTML="You fall under 'Underweight' category";
+            document.getElementById("category").style.backgroundColor="#ffb04b";
+        }
+        else if(result>18.5&&result<=25){
+            document.getElementById("category").innerHTML="You fall under 'Normal (healthy weight)' category";
+            document.getElementById("category").style.backgroundColor="#80ff80";
+        }
+        else if(result>25&&result<=30){
+            document.getElementById("category").innerHTML="You fall under 'Overweight' category";
+            document.getElementById("category").style.backgroundColor="#ffb04b";
+        }
+        else if(result>30&&result<=35){
+            document.getElementById("category").innerHTML="You fall under 'Moderately obese' category";
+            document.getElementById("category").style.backgroundColor="#ff4040";
+        }
+        else if(result>35&&result<=40){
+            document.getElementById("category").innerHTML="You fall under 'Severely obese' category";
+            document.getElementById("category").style.backgroundColor="#ff4040";
+        }
+        else if(result>=40){
+            document.getElementById("category").innerHTML="You fall under 'Very severely obese' category";
+            document.getElementById("category").style.backgroundColor="#ff4040";
+        }
+        document.getElementById("result").style.display="block";
+        document.getElementById("result").scrollIntoView();
+    }
+
+    function bmiimperial() {
+        var weight = document.getElementById("weightinlbs").value;
+        var height = document.getElementById("heightinin").value;
+        var result = 703 * (weight / (height * height)) ;
+        document.getElementById("bmi").innerHTML="Your BMI is: "+result.toFixed(2);
+        if(result<=15){
+            document.getElementById("category").innerHTML="You fall under 'Very severely underweight' category"
+        }
+        else if(result>15&&result<=16){
+            document.getElementById("category").innerHTML="You fall under 'Severely underweight' category"
+        }
+        else if(result>16&&result<=18.5){
+            document.getElementById("category").innerHTML="You fall under 'Underweight' category"
+        }
+        else if(result>18.5&&result<=25){
+            document.getElementById("category").innerHTML="You fall under 'Normal (healthy weight)' category"
+        }
+        else if(result>25&&result<=30){
+            document.getElementById("category").innerHTML="You fall under 'Overweight' category"
+        }
+        else if(result>30&&result<=35){
+            document.getElementById("category").innerHTML="You fall under 'Moderately obese' category"
+        }
+        else if(result>35&&result<=40){
+            document.getElementById("category").innerHTML="You fall under 'Severely obese' category"
+        }
+        else if(result>=40){
+            document.getElementById("category").innerHTML="You fall under 'Very severely obese' category"
+        }
+        document.getElementById("result").style.display="block";
+        document.getElementById("result").scrollIntoView();
+    }
+</script>
+@endsection

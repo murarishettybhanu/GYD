@@ -1,0 +1,35 @@
+@layout('layouts.app')
+
+@section('content')
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('/img/kiwi.jpg')"">
+  <style>
+      .a{
+        padding: 20px 100px 20px 100px;background-color: black;color:white;opacity:0.6;font-size: 22px;
+      }
+  .a:hover{
+    -moz-box-shadow: 0 0 10px #ccc;
+		-webkit-box-shadow: 0 0 10px #ccc;
+		box-shadow: 0 0 10px #ccc;
+   opacity:0.9;
+  }
+  </style>
+    <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet'>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1 style="font-family: 'Berkshire Swash';">Calculators</h1>
+          <link href='https://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet'>
+          
+           <p class="subheading" style="font-family: 'Euphoria Script';font-size: 40px;">"Strive for progress,not for perfection"</p>
+<br>
+          <a href="/bmi"> <button class="a btn">BMI</button></a> &nbsp <a href="/bmr"><BUTTON class="a btn">BMR</BUTTON></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+@endsection

@@ -1,0 +1,180 @@
+@layout('layouts.app')
+
+@section('content')
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('/img/fish.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+          <h1 style="font-family: 'Berkshire Swash';">Create a new account</h1>
+          <link href='https://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet'>
+          <p class="subheading" style="font-family: 'Euphoria Script';font-size: 40px;">"Don't eat too much"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      @if(errors.length > 0)
+      <ul class="list-group">
+        @each(error in errors)
+        <li class="list-group-item text-danger">{{ error }}</li>
+        @endeach
+      </ul>
+      @endif
+      <form action="/users/register" method="POST" encType="multipart/form-data">
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Username</label>
+            <input required type="text" name="username" value="{{ data.username || '' }}" placeholder="Username"
+              class="form-control">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Email</label>
+            <input required type="email" name="email" value="{{ data.email || '' }}" placeholder="Email" class="form-control">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Weight in kg</label>
+            <input required type="text" id="weightinkg" name="weightinkg" placeholder="Weight" class="form-control">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Height in Cm</label>
+            <input required type="text" id="heightincm" name="heightincm" placeholder="Height" class="form-control">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Age</label>
+            <input required type="text" id="age" name="age" placeholder="Age" class="form-control">
+          </div>
+        </div>
+
+        <select class="form-control" name="gender" id="gender">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+        <br>
+        <select class="form-control" name="activity" id="activity">
+          <option>I am sedentary (little or no exercise)</option>
+          <option>I am lightly active (light exercise or sports 1-3 days per week)</option>
+          <option>I am moderately active (moderate exercise or sports 3-5 days per week)</option>
+          <option>I am very active (hard exercise or sports 6-7 days per week)</option>
+          <option>I am super active (very hard exercise or sports and a physical job)</option>
+        </select>
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>BMI</label>
+            <input required type="text" id="bmi" name="bmi" placeholder="BMI" class="form-control">
+          </div>
+        </div>
+
+        <a href="javascript:bmimetric();">Calculate BMI</a>
+
+        <input required type="text" id="category" name="category" style="display: none;">
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>BMR</label>
+            <input required type="text" id="bmr" name="bmr" placeholder="BMR" class="form-control">
+          </div>
+        </div>
+
+        <a href="javascript:bmrmetric();">Calculate BMR</a>
+
+        <input required type="text" id="dailyCalories" name="dailyCalories" style="display: none;">
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Password</label>
+            <input required type="password" name="password" placeholder="Password" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group my-4 text-center">
+          <button class="btn btn-primary">Register now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  function bmimetric() {
+    var weight = document.getElementById("weightinkg").value;
+    var hei = document.getElementById("heightincm").value;
+    var height = hei / 100;
+    var result = weight / (height * height);
+    console.log(result);
+    document.getElementById("bmi").value= result.toFixed(2);
+    if (result <= 15) {
+      document.getElementById("category").value = "You fall under 'Very severely underweight' category";
+    }
+    else if (result > 15 && result <= 16) {
+      document.getElementById("category").value = "You fall under 'Severely underweight' category";
+    }
+    else if (result > 16 && result <= 18.5) {
+      document.getElementById("category").value = "You fall under 'Underweight' category";
+    }
+    else if (result > 18.5 && result <= 25) {
+      document.getElementById("category").value = "You fall under 'Normal (healthy weight)' category";
+    }
+    else if (result > 25 && result <= 30) {
+      document.getElementById("category").value = "You fall under 'Overweight' category";
+    }
+    else if (result > 30 && result <= 35) {
+      document.getElementById("category").value = "You fall under 'Moderately obese' category";
+    }
+    else if (result > 35 && result <= 40) {
+      document.getElementById("category").value = "You fall under 'Severely obese' category";
+    }
+    else if (result >= 40) {
+      document.getElementById("category").value = "You fall under 'Very severely obese' category";
+    }
+  }
+
+
+  function bmrmetric() {
+    var gender = document.getElementById("gender").value;
+    var weight = document.getElementById("weightinkg").value;
+    var height = document.getElementById("heightincm").value;
+    var age = document.getElementById("age").value;
+    var activity = document.getElementById("activity").value;
+    if (gender === "Male") {
+      var result = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+      document.getElementById("bmr").value = result.toFixed(2);
+    }
+    else if (gender === "Female") {
+      var result = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+      document.getElementById("bmr").value = result.toFixed(2);
+    }
+    if (activity === "I am sedentary (little or no exercise)") {
+      document.getElementById("dailyCalories").value = result * 1.2;
+    }
+    else if (activity === "I am lightly active (light exercise or sports 1-3 days per week)") {
+      document.getElementById("dailyCalories").value = result * 1.375;
+    }
+    else if (activity === "I am moderately active (moderate exercise or sports 3-5 days per week)") {
+      document.getElementById("dailyCalories").value = result * 1.55;
+    }
+    else if (activity === "I am very active (hard exercise or sports 6-7 days per week)") {
+      document.getElementById("dailyCalories").value = result * 1.725;
+    }
+    else if (activity === "I am super active (very hard exercise or sports and a physical job)") {
+      document.getElementById("dailyCalories").value = result * 1.9;
+    }
+  }
+
+</script>
+@endsection

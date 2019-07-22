@@ -1,0 +1,216 @@
+@layout('layouts.app')
+
+@section('content')
+<!-- Page Header -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<style>
+  body{
+    transition-delay: 1s;
+  }
+  * {
+      box-sizing: border-box;
+    }
+    
+    .column {
+      float: left;
+      width: 25%;
+      padding: 5px;
+    }
+    
+    /* Clearfix (clear floats) */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+</style>
+<header class="masthead" style="background-image: url(http://www.obino.in/blog/wp-content/uploads/2014/02/1.png)">
+  <link href='https://fonts.googleapis.com/css?family=Berkshire Swash'  rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet'>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1 style="font-family: 'Berkshire Swash';">Get your diet</h1>
+          <p class="subheading" style="font-family: 'Euphoria Script';font-size: 40px;">"Commit to be fit"</p>
+          <a href="#bro"><i class="fa fa-angle-double-down" style="font-size:48px;color:white;margin-top:20px;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container" id="bro">
+  <div data-aos="fade-right"
+  data-aos-anchor-placement="center-center" data-aos-delay="50"
+  data-aos-duration="500">
+      <div class="onlyveg container" style="color:rgb(54, 52, 52);background-color:rgb(214, 255, 179);font-size: 17px;font-family:'Balthazar'">
+      <p class="subheading" style="font-family: 'Alfa Slab One';font-size: 40px;">VEGETARIAN DIETS</p>
+    <ul>
+   <li> <p>A vegetarian diet is one which excludes meat. Vegetarians also avoid food containing by-products of animal slaughter, such as animal-derived rennet and gelatin.</p></li>
+   <li><p> Lacto vegetarianism: A vegetarian diet that includes certain types of dairy, but excludes eggs and foods which contain animal rennet.</p></li>
+   <li><p> A common diet among followers of several religions, including Hinduism, Sikhism and Jainism, based on the principle of Ahimsa (non-harming).</p></li>
+   <li><p> Ovo vegetarianism: A vegetarian diet that includes eggs, but excludes dairy.
+      Ovo-lacto vegetarianism: A vegetarian diet that includes eggs and dairy.</p></li> 
+   <li><p> Vegan diet: In addition to the abstentions of a vegetarian diet, vegans do not use any product produced by animals, such as eggs, dairy products, or honey.The vegan philosophy and lifestyle is broader than just the diet and also includes abstaining from using any products tested on animals and often campaigning for animal rights.
+  </p></li>
+  </ul>
+  </div>
+</div>
+<div class="container">
+<div class="row">
+  <div data-aos="fade-right" data-aos-delay="50"
+  data-aos-duration="500" class="column">
+    <img src="/img/veg.jpg"  style="width:100%">
+  </div>
+  <div data-aos="zoom-in" data-aos-delay="50"
+  data-aos-duration="500"
+  class="column">
+    <img src="/img/egg2.jpg" style="width:100%">
+  </div>
+  <div data-aos="zoom-in" data-aos-delay="50"
+  data-aos-duration="500" class="column">
+    <img src="https://foodal.com/wp-content/uploads/2016/03/steamed-vegetable-plate.jpg"  style="width:100%">
+  </div>
+  <div data-aos="fade-left" data-aos-delay="50"
+  data-aos-duration="500" class="column">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT12dSQ_OWRv7JFv78YjJsJ1pQRwxFi8AaoT58rMkJR2fYLml_" style="width:100%">
+</div>
+</div>
+</div>
+<div  data-aos="fade-left" data-aos-delay="50"
+data-aos-duration="500" class="semiveg" style="color:rgb(54, 52, 52);background-color:rgb(214, 255, 179);font-size: 17px;font-family:'Balthazar'">
+    <p class="subheading" style="font-family: 'Alfa Slab One';font-size: 40px;">SEMI-VEGETARIAN DIETS</p>
+    <ul>
+      <li><p>Semi-vegetarianism: A predominantly vegetarian diet, in which meat is occasionally consumed.</p></li>
+      <p><li>Kangatarian: A diet originating from Australia. In addition to foods permissible in a vegetarian diet, kangaroo meat is also consumed.</p></li>
+       <p><li>Pescetarian diet: A diet which includes fish but not other meats.</p></li>
+     <p><li>Plant-based diet: A broad term to describe diets in which animal products do not form a large proportion of the diet. Under some definitions a plant-based diet is fully vegetarian; under others it is possible to follow a plant-based diet whilst occasionally consuming meat.</p></li>
+     <p><li>Pollotarian: Someone who eats chicken or other poultry, but not meat from mammals, often for environmental, health or food justice reasons.</p></li>
+      <p><li>Pollo-pescetarian: Someone who eats both poultry and fish/seafood, though no meat from mammals.</p></li>
+    </div> 
+    <div class="container">
+      <div class="row">
+        <div data-aos="fade-right" data-aos-delay="50"
+        data-aos-duration="1000" class="column">
+          <img src="/img/semiveg.jpg"  style="width:100%">
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="50"
+        data-aos-duration="1000" class="column">
+          <img src="/img/pesitarian.jpg" style="width:100%">
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="50"
+        data-aos-duration="1000" class="column">
+          <img src="/img/plantbased.jpg"  style="width:100%">
+        </div>
+        <div data-aos="fade-left" data-aos-delay="50"
+        data-aos-duration="1000" class="column">
+          <img src="/img/sugar.jpg" style="width:100%">
+      </div>
+      </div>
+      </div>   
+    <div data-aos="fade-right" data-aos-delay="50"
+    data-aos-duration="1000" class="weightcontrol" style="color:rgb(54, 52, 52);background-color:rgb(214, 255, 179);font-size: 17px;font-family:'Balthazar'">
+        <p class="subheading" style="font-family: 'Alfa Slab One';font-size: 40px;">WEIGHT CONTROL DIETS</p>
+        <ul>
+          <li><p>A desire to lose weight is a common motivation to change dietary habits, as is a desire to maintain an existing weight. Many weight loss diets are considered by some to entail varying degrees of health risk, and some are not widely considered to be effective. This is especially true of "crash" or "fad" diets.[citation needed]
+
+              Many of the diets listed below could fall into more than one subcategory. Where this is the case, it is noted in that diet's entry.</p></li>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div data-aos="fade-right" data-aos-delay="50"
+              data-aos-duration="1000" class="column">
+                <img src="/img/weight.jpg"  style="width:100%">
+              </div>
+              <div data-aos="fade-left" data-aos-delay="50"
+              data-aos-duration="1000" class="column">
+                <img src="/img/lemon.jpg" style="width:100%">
+            </div>
+            </div>
+            </div>
+          <div data-aos="fade-left" data-aos-delay="50"
+          data-aos-duration="500" class="lowcalories" style="color:rgb(54, 52, 52);background-color:rgb(214, 255, 179);font-size: 17px;font-family:'Balthazar'">
+              <p class="subheading" style="font-family: 'Alfa Slab One';font-size: 40px;">LOW-CALORIE DIETS</p>
+              <ul>
+                <li><p>Intermittent fasting: Cycling between non-fasting and fasting as a method of calorie restriction.</p></li>
+         <li><p>Body for Life: A calorie-control diet, promoted as part of the 12-week Body for Life program.</p></li>
+ <li><p>Cookie diet: A calorie control diet in which low-fat cookies are eaten to quell hunger, often in place of a meal.</p></li>
+<li><p>The Hacker's Diet: A calorie-control diet from The Hacker's Diet by John Walker. The book suggests that the key to reaching and maintaining the desired weight is understanding and carefully monitoring calories consumed and used.</p></li>
+<li><p>Nutrisystem diet: The dietary element of the weight-loss plan from Nutrisystem, Inc. Nutrisystem distributes low-calorie meals, with specific ratios of fats, proteins and carbohydrates.</p></li>
+<li><p>Weight Watchers diet: Foods are assigned point values; dieters can eat any food with a point value provided they stay within their daily point limit.</p></li>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div data-aos="fade-right" data-aos-delay="50"
+                  data-aos-duration="1000" class="column">
+                    <img src="/img/cookie.jpg"  style="width:100%">
+                  </div>
+                  <div data-aos="fade-left" data-aos-delay="50"
+                  data-aos-duration="1000" class="column">
+                    <img src="/img/cookie1.jpg" style="width:100%">
+                  </div>
+                </div>
+                </div>
+              <div data-aos="fade-right" data-aos-delay="50"
+              data-aos-duration="500" class="verylowcalories container" style="color:rgb(54, 52, 52);background-color:rgb(214, 255, 179);font-size: 17px;font-family:'Balthazar'">
+                  <p class="subheading" style="font-family: 'Alfa Slab One';font-size: 40px;">VERY LOW-CALORIE DIETS</p>
+                  <ul>
+                    <li><p>A very low calorie diet is consuming fewer than 800 calories per day. Such diets are normally followed under the supervision of a doctor.</p></li>
+                    <li><p> Zero-calorie diets are also included.</p></li>
+<p><li>Inedia (breatharian diet): A diet in which no food is consumed, based on the belief that food is not necessary for human subsistence.</p></li>
+<li><p>KE diet: A diet in which an individual feeds through a feeding tube and does not eat anything.</p></li>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div data-aos="fade-right" data-aos-delay="50"
+                      data-aos-duration="1000" class="column">
+                        <img src="/img/vlc.jpg"  style="width:100%">
+                      </div>
+                      <div data-aos="zoom-in" data-aos-delay="50"
+                      data-aos-duration="1000" class="column">
+                        <img src="/img/tic.jpg" style="width:100%">
+                      </div>
+                      <div data-aos="fade-left" data-aos-delay="50"
+                      data-aos-duration="1000" class="column">
+                        <img src="/img/diet.jpg"  style="width:100%">
+                      </div>
+                    </div>
+                    </div>  
+<div data-aos="fade-left" data-aos-delay="50"
+data-aos-duration="500" class="lowcarbs" style="color:rgb(54, 52, 52);background-color:rgb(214, 255, 179);font-size: 17px;font-family:'Balthazar'">
+    <p class="subheading" style="font-family: 'Alfa Slab One';font-size: 40px;">LOW-CARBOHYDRATE DIETS</p>
+    <ul>
+      <li><p>Atkins diet: A low-carbohydrate diet, popularized by nutritionist Robert Atkins in the late-20th and early-21st centuries.</p></li><li><p> Proponents argue that this approach is a more successful way of losing weight than low-calorie diets;</p></li><li><p> critics argue that a low-carb approach poses increased health risks.</p></li><li><p> The Atkins diet consists of four phases (Induction, Balancing, Fine-Tuning and Maintenance) with a gradual increase in consumption of carbohydrates as the person goes through the phases.</p></li>
+<li><p>Dukan Diet: A multi-step diet based on high protein and limited carbohydrate consumption. It starts with two steps intended to facilitate short term weight loss, followed by two steps intended to consolidate these losses and return to a more balanced long-term diet.</p></li>
+       <li><p>   Ideal Protein diet: A four-phase carbohydrate-restricted weight-loss plan composed of pre-made meals, protein, vegetables, and water, with the fourth phase introducing carbohydrates balanced with protein and fats.</p></li>
+<li><p>Kimkins: A heavily promoted diet for weight loss, found to be fraudulent.</p></li>
+<li><p>South Beach Diet: Diet developed by the Miami-based cardiologist Arthur Agatston, M.D., who says that the key to losing weight quickly and getting healthy isn’t cutting all carbohydrates and fats from your diet, but choosing the right carbs and the right fats.</p></li>
+<li><p>Stillman diet: A carbohydrate-restricted diet that predates the Atkins diet, allowing consumption of specific food ingredients.</p></li>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div data-aos="fade-right" data-aos-delay="50"
+        data-aos-duration="1000" class="column">
+          <img src="/img/stillman.jpg"  style="width:100%">
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="50"
+        data-aos-duration="1000" class="column">
+          <img src="/img/dukan.jpg" style="width:100%">
+        </div>
+        <div data-aos="fade-left" data-aos-delay="50"
+        data-aos-duration="1000" class="column">
+          <img src="/img/atkins.jpg" style="width:100%">
+        </div>
+      </div>
+      </div>
+<!-- Pager -->
+<div class="clearfix">
+</div>
+
+<hr>
+@endsection

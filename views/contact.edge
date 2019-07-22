@@ -1,0 +1,51 @@
+@layout('layouts.app')
+
+@section('content')
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('/img/fruit.jpg')">
+  <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet'>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1 style="font-family: 'Berkshire Swash';">Hello!!!</h1>
+          <p class="subheading" style="font-family: 'Euphoria Script';font-size: 40px;">"Respect your health"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+			<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <form action="/" method="POST" encType="multipart/form-data">
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Full name</label>
+            <input type="text" name="fullname" placeholder="Full name" class="form-control">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Email</label>
+            <input type="email" name="password" placeholder="Email" class="form-control">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>message</label>
+            <input type="message" name="password" placeholder="Message" class="form-control">
+          </div>
+        </div>
+      
+        <div class="form-group my-4 text-center">
+          <button class="btn btn-primary">send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+@endsection
