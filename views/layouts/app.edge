@@ -56,13 +56,21 @@
           <li class="nav-item">
             <a class="nav-link" href="/auth/register">Register</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact</a>
-          </li>
           @else
           <li class="nav-item">
             <a class="nav-link" href="/gyd">Get your dite</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/posts/new">New blog</a>
+          </li>
+          @endif
+          <li class="nav-item">
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          @if(auth)
           <li class="nav-item">
             <a class="nav-link" href="/auth/logout">Logout</a>
           </li>

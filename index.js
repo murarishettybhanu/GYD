@@ -24,9 +24,11 @@ const bmiController = require("./controllers/bmi");
 const bmrController = require("./controllers/bmr");
 const gydController = require("./controllers/gyd");
 const updatePageController = require("./controllers/updatePage");
-const updateController = require("./controllers/update")
+const updateController = require("./controllers/update");
+const blogController = require("./controllers/blog");
+const messageController = require("./controllers/messageSave")
 const app = new express();
-mongoose.connect("mongodb://localhost/GYD");
+mongoose.connect("mongodb://admin:admin123@ds253857.mlab.com:53857/gyd");
 
 app.use(connectFlash());
 
@@ -75,8 +77,10 @@ app.get("/bmr",bmrController);
 app.get("/gyd",gydController);
 app.get("/profile/update/:id",auth,updatePageController);
 app.post("/users/update/:id",auth,updateController);
+app.get("/blog",blogController);
+app.post("/message",messageController);
 app.use((req, res) => res.render('not-found'));
 
-app.listen(4000, () => {
-  console.log("App listening on port 4000");
+app.listen(5000, () => {
+  console.log("App listening on port 5000");
 });
