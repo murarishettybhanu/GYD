@@ -18,11 +18,13 @@ const loginController = require("./controllers/login");
 const loginUserController = require("./controllers/loginUser");
 const logoutController = require("./controllers/logout");
 const aboutController = require("./controllers/about");
-const contactController = require("./controllers/contact")
-const calculatorController = require("./controllers/calculator")
-const bmiController = require("./controllers/bmi")
-const bmrController = require("./controllers/bmr")
-const gydController = require("./controllers/gyd")
+const contactController = require("./controllers/contact");
+const calculatorController = require("./controllers/calculator");
+const bmiController = require("./controllers/bmi");
+const bmrController = require("./controllers/bmr");
+const gydController = require("./controllers/gyd");
+const updatePageController = require("./controllers/updatePage");
+const updateController = require("./controllers/update")
 const app = new express();
 mongoose.connect("mongodb://localhost/GYD");
 
@@ -70,7 +72,9 @@ app.get("/contact",contactController);
 app.get("/calculator",calculatorController);
 app.get("/bmi",bmiController);
 app.get("/bmr",bmrController);
-app.get("/gyd",gydController)
+app.get("/gyd",gydController);
+app.get("/profile/update/:id",auth,updatePageController);
+app.post("/users/update/:id",auth,updateController);
 app.use((req, res) => res.render('not-found'));
 
 app.listen(4000, () => {

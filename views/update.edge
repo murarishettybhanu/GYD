@@ -9,7 +9,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="page-heading">
           <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
-          <h1 style="font-family: 'Berkshire Swash';">Create a new account</h1>
+          <h1 style="font-family: 'Berkshire Swash';">Update profile</h1>
           <link href='https://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet'>
           <p class="subheading" style="font-family: 'Euphoria Script';font-size: 40px;">"Don't eat too much"</p>
         </div>
@@ -28,46 +28,39 @@
         @endeach
       </ul>
       @endif
-      <form action="/users/register" method="POST" encType="multipart/form-data">
+      <form action="/users/update/{{users._id}}" method="POST" encType="multipart/form-data">
         <div class="control-group">
           <div class="form-group floating-label-form-group controls">
             <label>Username</label>
-            <input required type="text" name="username" value="{{ data.username || '' }}" placeholder="Username"
-              class="form-control">
-          </div>
-        </div>
-        <div class="control-group">
-          <div class="form-group floating-label-form-group controls">
-            <label>Email</label>
-            <input required type="email" name="email" value="{{ data.email || '' }}" placeholder="Email"
+            <input required type="text" name="username" value="{{users.username}}" placeholder="Username"
               class="form-control">
           </div>
         </div>
         <div class="control-group">
           <div class="form-group floating-label-form-group controls">
             <label>Weight in kg</label>
-            <input required type="text" id="weightinkg" name="weightinkg" placeholder="Weight in kg" class="form-control">
+            <input required type="text" id="weightinkg" name="weightinkg" placeholder="Weight in kg" class="form-control" value="{{users.weightinkg}}">
           </div>
         </div>
         <div class="control-group">
           <div class="form-group floating-label-form-group controls">
             <label>Height in Cm</label>
-            <input required type="text" id="heightincm" name="heightincm" placeholder="Height in Cm" class="form-control">
+            <input required type="text" id="heightincm" name="heightincm" placeholder="Height in Cm" class="form-control" value="{{users.heightincm}}">
           </div>
         </div>
         <div class="control-group">
           <div class="form-group floating-label-form-group controls">
             <label>Age</label>
-            <input required type="text" id="age" name="age" placeholder="Age" class="form-control">
+            <input required type="text" id="age" name="age" placeholder="Age" class="form-control" value="{{users.age}}">
           </div>
         </div><br>
 
-        <select class="form-control" name="gender" id="gender">
+        <select class="form-control" name="gender" id="gender" required>
           <option>Male</option>
           <option>Female</option>
         </select>
         <br>
-        <select class="form-control" name="activity" id="activity">
+        <select class="form-control" name="activity" id="activity" required>
           <option>I am sedentary (little or no exercise)</option>
           <option>I am lightly active (light exercise or sports 1-3 days per week)</option>
           <option>I am moderately active (moderate exercise or sports 3-5 days per week)</option>
@@ -97,12 +90,6 @@
 
         <input required type="text" id="dailyCalories" name="dailyCalories" style="display: none;"><br><br>
 
-
-        <h5 style="color: #6c7581;">Profile picture</h5>
-        <div class="form-group">
-          <input type="file" name="image" class="form-control" required>
-        </div>
-
         <div class="control-group">
           <div class="form-group floating-label-form-group controls">
             <label>Password</label>
@@ -111,7 +98,7 @@
         </div>
 
         <div class="form-group my-4 text-center">
-          <button class="btn btn-primary">Register now</button>
+          <button class="btn btn-primary">Update now</button>
         </div>
       </form>
     </div>

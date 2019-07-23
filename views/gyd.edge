@@ -11,67 +11,26 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h1 style="font-family: 'Abril Fatface'">PLAN YOUR DIET</h1><br><br>
+                    <h1 style="font-family: 'Abril Fatface'">Welcome {{users.username}}</h1><br><br>
 
                 </div>
             </div>
         </div>
     </div>
 </header>
-<center>
-    <div id="hide" class="container">
-        <form action="javascript:void(0);">
-            <h4>Weight in kg:</h4><br>
-            <input id="weight" class="form-control" placeholder="enter your weight here" type="text"><br><br>
-            <h4>Height in feet's:</h4> <br>
-            <input id="height" class="form-control" placeholder="enter your height here" type="text"><br><br>
-            <h4>Age in year's:</h4> <br>
-            <input id="age" class="form-control" placeholder="enter your age here" type="text"><br><br>
-            <h4>Gender:</h4> <br>
-            <select class="form-control" id="gender">
-                <option>Male</option>
-                <option>Female</option>
-            </select><br><br>
-            <select class="form-control" id="goal">
-                <option>Weight loss</option>
-                <option>Maintenance</option>
-                <option>Weight gain</option>
-
-            </select><br><br>
-            <input class="btn btn-success" type=submit onclick="bmr()">
-
-        </form>
-    </div>
-    <div style="width: 20%;background-color: black;color: white;border-block-end: 2px;border-radius: 5%;border-color: orange;">
-        <h2 style="font-family: 'Atma';font-size: 25px;" id="ybmr"></h2>
-        <p id="demo1"></p>
-        <a style="background-color: orangered;" onclick="reload()" id="recheck"></a>
-        <a id="gyd"></a>
-    </div>
-</center>
-<script>
-    function bmr() {
-        var weig = document.getElementById("weight").value;
-        var heig = document.getElementById("height").value;
-        var heigcm = heig * 30.48;
-        var goal = document.getElementById("goal").value;
-        var age = document.getElementById("age").value;
-        if (document.getElementById("gender").value === "Male") {
-            var sec = (10 * weig) + (6.25 * heigcm) - (5 * age) + 5;
-        }
-        if (document.getElementById("gender").value === "Female") {
-            var sec = (10 * weig) + (6.25 * heigcm) - (5 * age) - 161;
-        }
-        var bmr = Math.round(sec * 100) / 100;
-        document.getElementById("ybmr").innerHTML = "Your BMR is";
-        document.getElementById("demo1").innerHTML = bmr;
-        document.getElementById("hide").style.display = 'none';
-        document.getElementById("recheck").innerHTML = "GET YOUR DIET!!";
-        return {bmr,goal};
-    }
-    function reload() {
-        b=bmr();
-        console.log(b);
-    }
-</script>
+<div class="container">
+    <img src="{{users.image}}" alt="img" height="250px" width="150px">
+    <h4>Name : {{users.username}}</h4>
+    <h4>Weight : {{users.weightinkg}}</h4>
+    <h4>Height : {{users.heightincm}}</h4>
+    <h4>Age : {{users.age}}</h4>
+    <h4>Gender : {{users.gender}}</h4>
+    <h4>Activity : {{users.activity}}</h4>
+    <h4>BMI : {{users.bmi}}</h4>
+    <h4>BMR : {{users.bmr}}</h4>
+    <h4>Required calories per day : {{users.dailyCalories}}</h4>
+    <h4>{{users.category}}</h4>
+    <a href="/profile/update/{{users._id}}"><button class="btn btn-primary">Update profile</button></a>
+    <a href="#"><button class="btn btn-primary">Get your diet</button></a>
+</div>
 @endsection

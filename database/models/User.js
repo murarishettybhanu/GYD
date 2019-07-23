@@ -23,7 +23,8 @@ const UserSchema = new mongoose.Schema({
   bmi: String,
   bmr: String,
   dailyCalories: String,
-  category:String
+  category: String,
+  image: String
 })
 
 UserSchema.pre('save', function(next) {

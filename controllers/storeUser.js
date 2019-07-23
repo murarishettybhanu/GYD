@@ -1,7 +1,14 @@
 const User = require('../database/models/User')
+const path = require('path');
 
 module.exports = (req, res) => {
-  User.create(req.body, (error, user) => {
+  const { image } = req.files
+
+  image.mv(path.resolve(__dirname, '..', 'public/posts', image.name), (error) => {
+    User.create({
+      ...req.body,
+      image: `/posts/${image.name}`
+      }, (error, user) => {
     if (error) {
       const registrationErrors = Object.keys(error.errors).map(key => error.errors[key].message)
 
@@ -11,4 +18,5 @@ module.exports = (req, res) => {
     }
     res.redirect('/')
   })
+})
 }
