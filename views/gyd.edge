@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Header -->
-<header class="masthead" style="background-image: url(http://www.obino.in/blog/wp-content/uploads/2014/02/1.png)">
+<header class="masthead" style="background-image: url(/img/pumpkin.jpg)">
     <link href='https://fonts.googleapis.com/css?family=Abril Fatface' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet'>
@@ -19,18 +19,24 @@
     </div>
 </header>
 <div class="container">
-    <img src="{{users.image}}" alt="img" height="250px" width="150px">
-    <h4>Name : {{users.username}}</h4>
-    <h4>Weight : {{users.weightinkg}}</h4>
-    <h4>Height : {{users.heightincm}}</h4>
-    <h4>Age : {{users.age}}</h4>
-    <h4>Gender : {{users.gender}}</h4>
-    <h4>Activity : {{users.activity}}</h4>
-    <h4>BMI : {{users.bmi}}</h4>
-    <h4>BMR : {{users.bmr}}</h4>
-    <h4>Required calories per day : {{users.dailyCalories}}</h4>
-    <h4>{{users.category}}</h4>
-    <a href="/profile/update/{{users._id}}"><button class="btn btn-primary">Update profile</button></a>
-    <a href="#"><button class="btn btn-primary">Get your diet</button></a>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="{{users.image}}" alt="img" height="200px" width="200px" style="border-radius: 50%;">
+        </div>
+        <div class="col-md-9 mt-md-3">
+            <h4>Name : {{users.username}}</h4>
+            <h4>Weight : {{users.weightinkg}}</h4>
+            <h4>Height : {{users.heightincm}}</h4>
+            <h4>Age : {{users.age}}</h4>
+            <h4>Gender : {{users.gender}}</h4>
+            <h4>Activity : {{users.activity}}</h4>
+            <h4>BMI : {{users.bmi}}</h4>
+            <h4>BMR : {{users.bmr}}</h4>
+            <h4>Required calories per day : {{users.dailyCalories}}</h4>
+            <h4>{{users.category}}</h4><br><br>
+            <a href="/profile/update/{{users._id}}"><button class="btn btn-primary">Update profile</button></a>
+            <a href="#"><button class="btn btn-primary">Get your diet</button></a>
+        </div>
+    </div>
 </div>
 @endsection

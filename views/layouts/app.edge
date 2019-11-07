@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <!-- <link rel="icon" href="img/favicon.png"> -->
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- <link rel="icon" href="img/favicon.png"> -->
+
 <head>
-  
+
 
   <title>GET YOUR DIET</title>
 
-  
+
   <!-- <link rel="icon" href="/favicon.png" type="image/png"> -->
 
-  <link rel="icon"  href="pl.png"/>
+  <link rel="icon" href="pl.png" />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- Bootstrap core CSS -->
   <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
+  <link
+    href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
     rel='stylesheet' type='text/css'>
-    
+
 
   <!-- Custom styles for this template -->
   <link href="/css/clean-blog.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="myFunction()">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="/">GYD</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
         Menu
         <i class="fa fa-bars"></i>
       </button>
@@ -46,9 +50,15 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
+          @if(admin)
           <li class="nav-item">
-            <a class="nav-link" href="/calculator">Calculators</a>
+            <a class="nav-link" href="/getallmessages">See Messages</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/logout">Logout</a>
+          </li>
+          @endif
+          @if(!admin)
           @if(!auth)
           <li class="nav-item">
             <a class="nav-link" href="/auth/login">Login</a>
@@ -58,12 +68,15 @@
           </li>
           @else
           <li class="nav-item">
-            <a class="nav-link" href="/gyd">Get your dite</a>
+            <a class="nav-link" href="/gyd">Get your diet</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/posts/new">New blog</a>
           </li>
           @endif
+          <li class="nav-item">
+            <a class="nav-link" href="/calculator">Calculators</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/blog">Blog</a>
           </li>
@@ -74,6 +87,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/auth/logout">Logout</a>
           </li>
+          @endif
           @endif
         </ul>
       </div>
@@ -114,7 +128,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+          <p class="copyright text-muted">Designed & Developed by "Batch C3"</p>
         </div>
       </div>
     </div>

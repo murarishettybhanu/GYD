@@ -7,6 +7,8 @@ const fileUpload = require("express-fileupload");
 const expressSession = require("express-session");
 const connectMongo = require("connect-mongo");
 const connectFlash = require("connect-flash");
+const flash = require('express-flash');
+
 
 const createPostController = require("./controllers/createPost");
 const homePageController = require("./controllers/homePage");
@@ -26,9 +28,10 @@ const gydController = require("./controllers/gyd");
 const updatePageController = require("./controllers/updatePage");
 const updateController = require("./controllers/update");
 const blogController = require("./controllers/blog");
-const messageController = require("./controllers/messageSave")
+const messageController = require("./controllers/messageSave");
+const getmessagesController = require("./controllers/getmessages")
 const app = new express();
-mongoose.connect("mongodb://admin:admin123@ds253857.mlab.com:53857/gyd");
+mongoose.connect("mongodb://localhost/getYourDiet");
 
 app.use(connectFlash());
 
@@ -42,6 +45,7 @@ app.use(
     })
   })
 );
+app.use(flash());
 
 app.use(fileUpload());
 app.use(express.static("public"));
@@ -53,10 +57,16 @@ app.use("*", (req, res, next) => {
   next();
 });
 
+app.use("*", (req, res, next) => {
+  edge.global("admin", req.session.email === "admin@gyd.com");
+  next();
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const storePost = require("./middleware/storePost");
+const admin = require("./middleware/admin");
 const auth = require("./middleware/auth");
 const redirectIfAuthenticated = require("./middleware/redirectIfAuthenticated");
 
@@ -79,6 +89,7 @@ app.get("/profile/update/:id",auth,updatePageController);
 app.post("/users/update/:id",auth,updateController);
 app.get("/blog",blogController);
 app.post("/message",messageController);
+app.get("/getallmessages",admin,getmessagesController);
 app.use((req, res) => res.render('not-found'));
 
 app.listen(5000, () => {

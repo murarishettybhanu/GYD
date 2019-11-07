@@ -1,17 +1,52 @@
 @layout('layouts.app')
 
 @section('content')
+
 <!-- Page Header -->
+@if(messages.RegistrationSuccess)
+<script>
+  function myFunction() {
+    swal({
+      title: "you have registered",
+      timer: 6000,
+      showConfirmButton: false
+    });
+  };
+</script>
+@endif
+@if(messages.IncorrectPwd)
+<script>
+  function myFunction() {
+    swal({
+      title:'You Have Entered an Incorrect Password',
+      timer: 6000,
+      showConfirmButton: false
+    });
+  };
+</script>
+@endif
+@if(messages.EmailDoesnot)
+<script>
+  function myFunction() {
+    swal({
+      title: "Email does not exist",
+      timer: 6000,
+      showConfirmButton: false
+    });
+  };
+</script>
+@endif
 <header class="masthead" style="background-image: url('/img/foodphoto.jpg')">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="page-heading">
-           <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
-           <h1 style="font-family: 'Berkshire Swash';">Login</h1>
-           <link href='https://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet'>
-           <p class="subheading" style="font-family: 'Euphoria Script';font-size: 40px;">"Eat right and the pants won't be tight"</p>
+          <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+          <h1 style="font-family: 'Berkshire Swash';">Login</h1>
+          <link href='https://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet'>
+          <p class="subheading" style="font-family: 'Euphoria Script';font-size: 40px;">"Eat right and the pants won't
+            be tight"</p>
         </div>
       </div>
     </div>
@@ -34,7 +69,7 @@
             <input type="password" name="password" placeholder="Password" class="form-control">
           </div>
         </div>
-      
+
         <div class="form-group my-4 text-center">
           <button class="btn btn-primary">Login</button>
         </div>

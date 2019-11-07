@@ -10,13 +10,11 @@ module.exports = (req, res) => {
       image: `/posts/${image.name}`
       }, (error, user) => {
     if (error) {
-      const registrationErrors = Object.keys(error.errors).map(key => error.errors[key].message)
-
-      req.flash('registrationErrors', registrationErrors)
-      req.flash('data', req.body)
+      req.flash('RegistrationUnSuccess', "you have Not registered")
       return res.redirect('/auth/register')
     }
-    res.redirect('/')
+    req.flash('RegistrationSuccess', "you have registered")
+    res.redirect('/auth/login')
   })
 })
 }

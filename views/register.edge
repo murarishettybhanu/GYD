@@ -2,6 +2,17 @@
 
 @section('content')
 <!-- Page Header -->
+@if(messages.RegistrationUnSuccess)
+<script>
+  function myFunction() {
+    swal({
+      title: "Email already exists",
+      timer: 6000,
+      showConfirmButton: false
+    });
+  };
+</script>
+@endif
 <header class="masthead" style="background-image: url('/img/fish.jpg')">
   <div class="overlay"></div>
   <div class="container">
