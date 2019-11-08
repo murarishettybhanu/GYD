@@ -35,8 +35,81 @@
             <h4>Required calories per day : {{users.dailyCalories}}</h4>
             <h4>{{users.category}}</h4><br><br>
             <a href="/profile/update/{{users._id}}"><button class="btn btn-primary">Update profile</button></a>
-            <a href="#"><button class="btn btn-primary">Get your diet</button></a>
+            <button class="btn btn-primary" onclick="gyd()">Get your diet</button>
         </div>
     </div>
 </div>
+<script>
+    function gyd(){
+        console.log("{{users.bmr}}");
+        var bmr = "{{users.bmr}}";
+        if('{{users.dietp}}'=='Vegetarian'){
+            if(bmr>800&&bmr<1300){
+                window.open('/diets/800-1300.pdf');
+            }
+            if(bmr>1300&&bmr<1500){
+                window.open('/diets/1300-1500.pdf');
+            }
+            if(bmr>1500&&bmr<1600){
+                window.open('/diets/1500-1600.pdf');
+            }
+            if(bmr>1600&&bmr<1700){
+                window.open('/diets/1600-1700.pdf');
+            }
+            if(bmr>1700&&bmr<1800){
+                window.open('/diets/1700-1800.pdf');
+            }
+            if(bmr>1800&&bmr<1900){
+                window.open('/diets/1800-1900.pdf');
+            }
+            if(bmr>1900&&bmr<2000){
+                window.open('/diets/1900-2000.pdf');
+            }
+            if(bmr>2000&&bmr<2100){
+                window.open('/diets/2000-2100.pdf');
+            }
+            if(bmr>2100&&bmr<2200){
+                window.open('/diets/2100-2200.pdf');
+            }
+            if(bmr>2200&&bmr<2300){
+                window.open('/diets/2200-2300.pdf');
+            }
+            if(bmr>2300&&bmr<2400){
+                window.open('/diets/2300-2400.pdf');
+            }
+            if(bmr>2400&&bmr<2500){
+                window.open('/diets/2400-2500.pdf');
+            }
+            if(bmr>2500&&bmr<2600){
+                window.open('/diets/2500-2600.pdf');
+            }
+            if(bmr>2600&&bmr<2700){
+                window.open('/diets/2600-2700.pdf');
+            }
+            if(bmr>2700&&bmr<2800){
+                window.open('/diets/2700-2800.pdf');
+            }
+            if(bmr>2800&&bmr<2900){
+                window.open('/diets/2800-2900.pdf');
+            }
+            if(bmr>2900){
+                window.open('/diets/2900-3000.pdf');
+            }
+        }
+        if('{{users.dietp}}'=='Non-Vegetarian'){
+            if(bmr<1600){
+                window.open('/nvdiets/b1600.pdf')
+            }
+            if(bmr>1700 && bmr<1800){
+                window.open('/nvdiets/1700-1800.pdf')
+            }
+            if(bmr>1800 && bmr<1900){
+                window.open('/nvdiets/1800-1900.pdf')
+            }
+            if(bmr>1900){
+                window.open('/nvdiets/a1900.pdf')
+            }
+        }
+    }
+</script>
 @endsection

@@ -16,6 +16,7 @@ const UserSchema = new mongoose.Schema({
     required: [true, 'Please provide your password.']
   },
   weightinkg: String,
+  dietp:String,
   heightincm:String,
   age: String,
   gender: String,
